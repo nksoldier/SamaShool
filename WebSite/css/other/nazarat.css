@@ -1,0 +1,92 @@
+@font-face {
+    font-family: nazanin;
+    src: url("../../Font/B-NAZANIN.TTF");
+}
+@font-face {
+    font-family: zar;
+    src: url("../../Font/B\ Zar_0.ttf");
+}
+@font-face {
+    font-family: lalezar;
+    src: url("../../Font/Lalezar-Regular.ttf");
+}
+
+body{
+    width: 99%;
+}
+
+h1{
+    color: #000000;
+    background-color: #89f7ff;
+    text-align: center;
+    width: auto;
+    margin-left: 19px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: lalezar;
+}
+
+.f_m{
+    padding-top: 100px;
+    padding-left: 400px;
+}
+
+.col{
+    padding: 40px;
+}
+
+input{
+    border-radius: 20px;
+    border: 3px #89f7ff solid;
+    height: 40px;
+    width: 200px;
+    font-family: zar;
+    transition: all .8s ease;
+    padding-right: 6px;
+}
+
+.txa{
+    border-radius: 20px;
+    border: 3px #89f7ff solid;
+    width: 200px;
+    font-family: zar;
+    transition: all .8s ease;
+    padding-right: 6px;
+    max-height: 120px;
+    min-height: 40px;
+}
+
+input:focus,.txa:focus{
+    transform: scale(1.2);
+    outline: none;
+}
+
+.bt{
+    background-color: #89f7ff;
+    color: #000000;
+    font-family: lalezar;
+    margin-left: 360px;
+    border: none;
+    font-size: 40px;
+    border-radius: 20px;
+    transition: all 0.5s ease;
+}
+
+.bt:hover{
+    background-color: #000000;
+    color: #89f7ff;
+}
+
+.btn-wm{
+    display: flex;
+    align-items: center;
+}
+
+.btn-w{
+    margin-left: 45px;
+    margin-right: 30px;
+}
+
+main {
+    min-height: 50vh;
+}
