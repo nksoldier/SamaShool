@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نقشه مدارس سرتاسر کشور</title>
+    <link rel="stylesheet" href="../../css/other/schools.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+</head>
+<body>
+    <section class="section1">
+        <div id="map"></div>
+    </section>
+    <script>
+    // Initialize the map
+        var map = L.map('map').setView([32.4279, 53.6880], 5);
+
+        // Load and display tile layer on the map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 18,
+        }).addTo(map);
+
+        var iranBounds = [[25.0, 44.0], [40.0, 63.0]];
+        map.setMaxBounds(iranBounds);
+        map.fitBounds(iranBounds);
+        map.on('drag', function() {
+            map.panInsideBounds(iranBounds, {animate: false});
+        });
+
+        // Create a marker cluster group
+        var markers = L.markerClusterGroup();
+        
+        // Define coordinates for cities with سما schools
+        var cities =[
+        { name: "تهران", coords: [35.6892, 51.3890] },
+    { name: "مشهد", coords: [36.2921, 59.6111] },
+    { name: "اصفهان", coords: [32.6539, 51.6660] },
+    { name: "تبریز", coords: [38.0700, 46.2919] },
+    { name: "شیراز", coords: [29.5918, 52.5836] },
+    { name: "اهواز", coords: [31.3183, 48.6706] },
+    { name: "کرمان", coords: [30.2936, 57.0842] },
+    { name: "کرج", coords: [35.8355, 50.9915] },
+    { name: "ارومیه", coords: [37.5523, 45.0761] },
+    { name: "زاهدان", coords: [29.4962, 60.8629] },
+    { name: "رشت", coords: [37.2751, 49.5832] },
+    { name: "گرگان", coords: [36.8450, 54.4373] },
+    { name: "بندرعباس", coords: [27.1832, 56.2666] },
+    { name: "قزوین", coords: [36.2824, 50.0000] },
+    { name: "قم", coords: [34.6399, 50.8759] },
+    { name: "همدان", coords: [34.7985, 48.5146] },
+    { name: "اراک", coords: [34.0930, 49.6990] },
+    { name: "ساری", coords: [36.5633, 53.0601] },
+    { name: "بابل", coords: [36.5511, 52.6788] },
+    { name: "آبادان", coords: [30.3525, 48.2973] },
+    { name: "خوی", coords: [38.5507, 44.9445] },
+    { name: "خرم‌آباد", coords: [33.4878, 48.3558] },
+    { name: "سنندج", coords: [35.3129, 46.9890] },
+    { name: "اردبیل", coords: [38.2498, 48.2933] },
+    { name: "بیرجند", coords: [32.8663, 59.2206] },
+    { name: "یاسوج", coords: [30.6687, 51.5873] },
+    { name: "زنجان", coords: [36.6736, 48.4787] },
+    { name: "گرمسار", coords: [35.2042, 52.3431] },
+    { name: "بوشهر", coords: [28.9234, 50.8203] },
+    { name: "ایلام", coords: [33.6378, 46.4223] },
+    { name: "کاشان", coords: [33.9860, 51.4345] },
+    { name: "بجنورد", coords: [37.4766, 57.3309] },
+    { name: "شهسوار", coords: [36.6659, 51.4231] },
+    { name: "سبزوار", coords: [36.2152, 57.6811] },
+    { name: "طالقان", coords: [36.2061, 50.7715] },
+            // Add more cities here
+        ];
+
+        // Add markers for each city
+        cities.forEach(city => {
+            L.marker(city.coords)
+              .addTo(map)
+              .bindPopup(`<b>${city.name}</b><br>مدارس سما`)
+              .openPopup();
+        });</script>
+</body>
+</html>
